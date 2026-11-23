@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AuraID</string>
+    <string name="tagline_brand">Identitas Digital Modern &amp; Terenkripsi</string>
+    <string name="tab_login">Masuk</string>
+    <string name="tab_register">Registrasi</string>
+    <string name="auth_google_login_btn">Masuk dengan Email Google</string>
+    <string name="auth_google_register_btn">Daftar &amp; Lanjutkan dengan Google</string>
+    <string name="auth_email_note">Autentikasi menggunakan akun Google Email Anda melalui Firebase Auth &amp; tersimpan aman di Cloud Firestore.</string>
+    <string name="nav_home">Beranda</string>
+    <string name="nav_profile">Data Diri</string>
+    <string name="nav_account">Akun</string>
+    <string name="sign_out_btn">Keluar dari Akun</string>
+    <string name="error_invalid_fullname">Nama lengkap minimal 2 karakter (maks. 80 karakter).</string>
+</resources>

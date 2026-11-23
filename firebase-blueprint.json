@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Registered user personal data (Data Diri) stored per authenticated user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID matching the document ID."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "User full name (Nama Lengkap)."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Authenticated user email address."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Optional phone number (Nomor Telepon)."
+        },
+        "birthDate": {
+          "type": "string",
+          "description": "Optional birth date string (Tanggal Lahir)."
+        },
+        "city": {
+          "type": "string",
+          "description": "Optional city of residence (Kota / Domisili)."
+        },
+        "occupation": {
+          "type": "string",
+          "description": "Optional occupation or role (Pekerjaan)."
+        },
+        "bio": {
+          "type": "string",
+          "description": "Optional short biography (Bio Singkat)."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "Optional profile photo URL."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation server timestamp (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update server timestamp (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": ["userId", "fullName", "email", "createdAt", "updatedAt"]
+    },
+    "ActivityLog": {
+      "title": "ActivityLog",
+      "description": "Immutable login and profile registration/update log entry for the user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID."
+        },
+        "action": {
+          "type": "string",
+          "enum": ["LOGIN", "REGISTER", "UPDATE_PROFILE"],
+          "description": "Type of account activity."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the event."
+        },
+        "deviceLabel": {
+          "type": "string",
+          "description": "Device model label."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation server timestamp (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": ["userId", "action", "description", "deviceLabel", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Personal data profile owned strictly by the authenticated user."
+    },
+    "/users/{userId}/activity_logs/{logId}": {
+      "schema": { "$ref": "#/entities/ActivityLog" },
+      "description": "User-scoped activity and login history subcollection."
+    }
+  }
+}

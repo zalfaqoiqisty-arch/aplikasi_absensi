@@ -1,0 +1,6 @@
+{
+  "name": "AuraID",
+  "description": "Aplikasi login dan registrasi data diri dengan Firebase Auth, Firestore, dan desain glassmorphism modern.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
